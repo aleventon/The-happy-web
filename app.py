@@ -3,7 +3,7 @@
 from flask import Flask, Markup
 from flask import render_template
 from flask import request
-
+from datetime import datetime
 
 
 # -- Initialization section --
@@ -59,6 +59,10 @@ def sendMonth():
     birth_month = request.form['month']
     birth_stone = months[birth_month]
     print(birth_stone)
-    return render_template('results.html', stone=Markup(birth_stone))
+    return render_template('results.html', stone=Markup(birth_stone), time = datetime.now())
+
+@app.route('/aboutus')
+def aboutus(): 
+    return render_template('Aboutus.html')
 
 
